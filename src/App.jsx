@@ -1,10 +1,10 @@
-import About from "./components/About"
-import Contact from "./components/Contact"
-import Education from "./components/Education"
-import Hero from "./components/Hero"
-import Navbar from "./components/Navbar"
-import Technologies from "./components/Technologies"
-import Project from "./components/project"
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Education from "./components/Education";
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
+import Technologies from "./components/Technologies";
+import Project from "./components/Project";
 import { Routes, Route } from "react-router-dom";
 
 const App = () => {
