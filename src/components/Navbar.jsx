@@ -4,9 +4,15 @@ import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 import { Menu, X } from "lucide-react"; // Icons for Mobile Menu
 import logo from "../assets/priyamvadalogo.png";
+import Ask from "./Ask"; // Import Ask component
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAskOpen, setIsAskOpen] = useState(false); // State for managing Ask form modal
+
+  const toggleAskForm = () => {
+    setIsAskOpen(!isAskOpen);
+  };
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-neutral-900 shadow-md z-50">
@@ -19,12 +25,13 @@ const Navbar = () => {
 
         {/* Navigation Links (Desktop) */}
         <div className="hidden md:flex flex-1 justify-center space-x-8 text-lg font-medium text-neutral-300">
-          <Link to="/" className="hover:text-white transition">Portfolio</Link>
-          <Link to="/about" className="hover:text-white transition">About</Link>
-          <Link to="/projects" className="hover:text-white transition">Projects</Link>
-          <Link to="/education" className="hover:text-white transition">Education</Link>
-          <Link to="/technologies" className="hover:text-white transition">Technologies</Link>
-          <Link to="/contact" className="hover:text-white transition">Contact</Link>
+          <Link to="/" className="hover:text-purple-400 transition">Portfolio</Link>
+          <Link to="/about" className="hover:text-purple-400 transition">About</Link>
+          <Link to="/projects" className="hover:text-purple-400 transition">Projects</Link>
+          <Link to="/education" className="hover:text-purple-400 transition">Education</Link>
+          <Link to="/technologies" className="hover:text-purple-400 transition">Technologies</Link>
+          <Link to="/contact" className="hover:text-purple-400 transition">Contact</Link>
+          <Link to="/ask" className="hover:text-purple-400 transition">Any Question?</Link>
         </div>
 
         {/* Social Icons */}
@@ -35,7 +42,7 @@ const Navbar = () => {
           <a href="https://github.com/Priya-1626" target="_blank" rel="noopener noreferrer">
             <FaGithub className="hover:text-gray-400 transition" />
           </a>
-          <a href="priyamvadamaurya26@gmail.com">
+          <a href="mailto:priyamvadamaurya26@gmail.com">
             <MdOutlineMail className="hover:text-red-400 transition" />
           </a>
           <a href="https://www.instagram.com/varsh7594/?next=%2F&hl=en" target="_blank" rel="noopener noreferrer">
@@ -61,8 +68,34 @@ const Navbar = () => {
           <Link to="/education" className="block py-2 text-center" onClick={() => setIsOpen(false)}>Education</Link>
           <Link to="/technologies" className="block py-2 text-center" onClick={() => setIsOpen(false)}>Technologies</Link>
           <Link to="/contact" className="block py-2 text-center" onClick={() => setIsOpen(false)}>Contact</Link>
+          <Link to="/ask" className="block py-2 text-center" onClick={() => setIsOpen(false)}>Any Question?</Link>
         </div>
       )}
+
+      {/* Ask Form Modal */}
+      {isAskOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-neutral-800 p-6 rounded-md">
+            <Ask />
+            <button
+              onClick={toggleAskForm}
+              className="absolute top-2 right-2 text-white"
+            >
+              X
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Ask Button (Desktop or Mobile) */}
+      <div className="md:hidden text-center mt-4">
+        <button
+          onClick={toggleAskForm}
+          className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition"
+        >
+          Ask
+        </button>
+      </div>
     </nav>
   );
 };

@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Technologies from "./components/Technologies";
 import Project from "./components/Project";
+import Ask from "./components/Ask";
 import { Routes, Route } from "react-router-dom";
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/education" element={<Education />} />
             <Route path="/projects" element={<Project />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/ask" element={<Ask />} />
           </Routes>
       </div>
     </div>
